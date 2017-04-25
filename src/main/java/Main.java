@@ -1,3 +1,5 @@
+import org.junit.Assert;
+
 import java.util.List;
 
 /**
@@ -11,17 +13,24 @@ public class Main {
 
     public static void main(String[] args) {
         processText(EXAMPLE_TEXT);
-//        processText(SUBMIT_TEXT);
+        processText(SUBMIT_TEXT);
     }
 
     private static void processText(String text) {
         System.out.println("Original: " + text);
         EncodeLZW encodeLzw = new EncodeLZW(text);
-        System.out.println("Coded string: " + encodeLzw.getCodedOutput());
-        printTable(encodeLzw.getTable());
+        String codedString = encodeLzw.getCodedOutput();
+        System.out.println("Coded string: " + codedString);
+
+        DecodeLZW decodeLZW = new DecodeLZW(codedString, Utils.createLetterList(text));
+        String decodedString = decodeLZW.getOriginalText();
+        System.out.println("Decoded string: " + decodedString);
+        printTable(decodeLZW.getTable());
         System.out.println();
         System.out.println();
-        System.out.println();
+
+        Assert.assertEquals(text, decodedString);
+        Assert.assertEquals(encodeLzw.getTable(), decodeLZW.getTable());
     }
 
     private static void printTable(List<String> table) {
