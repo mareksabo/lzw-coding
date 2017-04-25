@@ -3,14 +3,15 @@ import java.util.*;
 /**
  * @author Marek Sabo
  */
-class LZW {
+class EncodeLZW {
 
     private List<String> table;
+    private String codedOutput;
 
-    LZW(String inputString) {
+    EncodeLZW(String inputString) {
         table = createLetterList(inputString);
-        String codedOutput = encodeToNumbers(inputString);
-        System.out.println(codedOutput);
+        codedOutput = encodeToNumbers(inputString);
+
     }
 
     private List<String> createLetterList(String input) {
@@ -51,5 +52,9 @@ class LZW {
 
     List<String> getTable() {
         return table;
+    }
+
+    String getCodedOutput() {
+        return codedOutput;
     }
 }

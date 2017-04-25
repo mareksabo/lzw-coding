@@ -11,13 +11,14 @@ public class Main {
 
     public static void main(String[] args) {
         processText(EXAMPLE_TEXT);
-        processText(SUBMIT_TEXT);
+//        processText(SUBMIT_TEXT);
     }
 
     private static void processText(String text) {
         System.out.println("Original: " + text);
-        LZW lzw = new LZW(text);
-        printTable(lzw.getTable());
+        EncodeLZW encodeLzw = new EncodeLZW(text);
+        System.out.println("Coded string: " + encodeLzw.getCodedOutput());
+        printTable(encodeLzw.getTable());
         System.out.println();
         System.out.println();
         System.out.println();

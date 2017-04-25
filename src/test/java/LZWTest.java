@@ -8,11 +8,11 @@ import static org.junit.Assert.assertEquals;
  */
 public class LZWTest {
 
-    private LZW lzw;
+    private EncodeLZW encodeLzw;
 
     @Before
     public void setUp() throws Exception {
-//        lzw = new LZW("ALOHA");
+//        encodeLzw = new EncodeLZW("ALOHA");
     }
 
     @Test
