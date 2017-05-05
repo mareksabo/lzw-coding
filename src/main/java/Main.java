@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Main {
 
-    private static final String EXAMPLE_TEXT = "wabba_wabba_wabba_wabba_woo_woo_woo";
+    private static final String EXAMPLE_TEXT = "ababcbabab";
     private static final String SUBMIT_TEXT = "/WED/WE/WEE/WEB/WET";
 
 

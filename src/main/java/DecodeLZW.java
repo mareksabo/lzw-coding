@@ -18,12 +18,19 @@ class DecodeLZW {
         StringBuilder builder = new StringBuilder();
         String previous = "";
         for (int number : stringToDecreasedIntArray(codedString)) {
-            String current = table.get(number);
+            String current = getStringFromDictionary(previous, number);
             builder.append(current);
             addToDictionary(previous + current.charAt(0));
             previous = current;
         }
         return builder.toString();
+    }
+
+    private String getStringFromDictionary(String previous, int number) {
+        if (number >= table.size()) {
+            addToDictionary(previous + previous.charAt(0));
+        }
+        return table.get(number);
     }
 
     private int[] stringToDecreasedIntArray(String numbers) {
